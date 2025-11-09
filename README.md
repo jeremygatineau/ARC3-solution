@@ -2,10 +2,10 @@
 
 ## Authors
 
-- [Jeremy Gatineau  ](https://jeremygatineau.github.io/) 
+- [Jeremy Gatineau](https://jeremygatineau.github.io/) 
 
 ## Overview
-We are learning action representations through successor features, with various tricks to make learning as sample efficient as possible.
+We are learning action representations through successor features, with various tricks to make learning as sample efficient as possible. Initial forked from [the StochasticGoose agent by Dries Smit](https://github.com/DriesSmit/ARC3-solution)
 
 **Key Features:**
 - WIP
