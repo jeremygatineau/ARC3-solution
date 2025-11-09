@@ -1,20 +1,14 @@
-# ARC-AGI Challenge 3 – StochasticGoose
-StochasticGoose is an action-learning agent for the ARC-AGI-3 Agent Preview Competition. It uses a simple reinforcement learning approach to predict which actions will cause frame changes, enabling more efficient exploration than random selection.
+# ARC-AGI Challenge 3 – Efficient Successor Learning
 
 ## Authors
 
-- **Lead Developer**: [Dries Smit](https://driessmit.github.io/) 
-- **Adviser/Reviewer**: [Jack Cole](https://x.com/MindsAI_Jack)
+- [Jeremy Gatineau  ](https://jeremygatineau.github.io/) 
 
 ## Overview
-The action learning agent uses a CNN-based model to predict which actions (ACTION1-ACTION6) will result in new frame states. This enables more precise exploration by biasing action selection toward actions predicted to cause changes.
+We are learning action representations through successor features, with various tricks to make learning as sample efficient as possible.
 
 **Key Features:**
-- CNN with shared backbone for action and coordinate prediction
-- Binary classification: predicts if actions will change the current frame
-- Hierarchical sampling: first select action type, then coordinate if needed. The coordinate sampling is done purely through convolution to retain the 2D grid bias.
-- Efficient experience buffer that stores all experiences with hash-based deduplication for maximum sample efficiency given the ~200k sample constraint
-- Dynamic model reset when reaching new levels
+- WIP
 
 ## Setup Instructions
 
@@ -65,23 +59,7 @@ make action
 ```
 
 ## Architecture
-
-### ActionModel (CNN)
-- **Input**: 16-channel one-hot encoded frames (64x64)
-- **Backbone**: 4-layer CNN (32→64→128→256 channels)
-- **Action Head**: Predicts ACTION1-ACTION5 probabilities
-- **Coordinate Head**: Predicts 64x64 click position probabilities for ACTION6 with 2D inductive bias using convolutional layers instead of flattened representations
-
-### Training
-- **Supervised Learning**: (state, action) → frame_changed labels
-- **Experience Buffer**: 200K unique state-action pairs with hash-based deduplication
-- **Dynamic Reset**: Clears buffer and resets model when reaching new levels
-- **Loss**: Binary cross-entropy with light entropy regularization
-
-### Exploration Strategy
-- **Stochastic Sampling**: Uses sigmoid probabilities for action selection
-- **Hierarchical Selection**: First sample action type, then coordinates if ACTION6
-- **Change Prediction**: Biases exploration toward actions predicted to cause changes
+WIP
 
 ## Monitoring
 
